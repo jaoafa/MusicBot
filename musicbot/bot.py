@@ -1528,7 +1528,8 @@ class MusicBot(discord.Client):
 
         for i, item in enumerate(player.playlist, 1):
             if item.meta.get('channel', False) and item.meta.get('author', False):
-                nextline = '`{}.`「 **{}** 」 - 「 **{}** 」({})'.format(i, item.title, item.meta['author'].name, i.duration).strip()
+                song_total = str(timedelta(seconds=item.duration)).lstrip('0').lstrip(':')
+                nextline = '`{}.`「 **{}** 」 - 「 **{}** 」({})'.format(i, item.title, item.meta['author'].name, song_total).strip()
             else:
                 nextline = '`{}.` **{}**'.format(i, item.title).strip()
 
